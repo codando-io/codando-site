@@ -35,14 +35,15 @@ bundle hydrates that HTML. No router, no server at runtime.
 - The page is complete HTML without JavaScript. With JavaScript, the browser downloads a 216 kB
   bundle (61 kB with Brotli, 69 kB with gzip) to hydrate the page and draw the leader lines,
   where the reference needed 2.5 kB.
-- The hero figure's motion plays only if the page has not rendered a frame yet, because content
-  already on screen must not vanish to animate back in. The reference's small script usually ran
-  before that frame; the bundle usually runs after it, so the leaders appear without motion.
-  Measured on 2026-10-08 in headless Chrome, cache disabled, against the local preview: the
-  reference played the motion unthrottled and throttled to DevTools' Fast 4G and Slow 4G
-  figures; this build skipped it in all three (first frame at 48, 456, and 1,380 ms; leaders
-  drawn at 54, 648, and 2,707 ms). Bringing the motion back means hiding content until the
-  bundle runs, or animating only the leaders, which were never on screen.
+- The hero figure plays its full motion (highlights sweep, leaders draw, records appear) only if
+  the page has not rendered a frame yet, because content already on screen must not vanish to
+  animate back in. After the first frame only the leader lines animate, since they were never on
+  screen. The reference's small script usually ran before that frame; the bundle usually runs
+  after it. Measured on 2026-10-08 in headless Chrome, cache disabled, against the local preview:
+  the reference played the full motion unthrottled and throttled to DevTools' Fast 4G and Slow 4G
+  figures. This build animated only the leaders in all three, with no animation on highlights or
+  records. In eight more unthrottled loads it played the full motion five times, each starting
+  before the first paint.
 - Any static host serves the site: upload `dist/codando-site/browser/`. Hashed bundle names allow
   long cache lifetimes for the JavaScript and CSS.
 - Angular major upgrades follow the harness `dependency-update` skill, one major at a time.

@@ -19,10 +19,12 @@ const MARKERS: readonly MarkerNumber[] = TRACE_FIELDS.flatMap(({ marker }) =>
 );
 
 /**
- * `pending`: the prerendered figure, no leaders yet. `playing`: leaders drawn, motion running.
- * `settled`: no motion from here on, so leaders redrawn after a resize appear without replaying it.
+ * `pending`: the prerendered figure, no leaders yet. `full`: nothing was on screen yet, so the
+ * highlights, leaders, and records all animate. `leaders`: the page was already painted, so only
+ * the leaders, never on screen before, animate. `settled`: no motion from here on, so leaders
+ * redrawn after a resize appear without replaying it.
  */
-type Motion = 'pending' | 'playing' | 'settled';
+type Motion = 'pending' | 'full' | 'leaders' | 'settled';
 
 /** The figure reads fully without the leaders; they are drawn in the browser once layout is known. */
 @Component({
@@ -33,6 +35,7 @@ type Motion = 'pending' | 'playing' | 'settled';
     class: 'trace',
     'aria-labelledby': 'trace-caption',
     '[class.is-drawn]': 'motion() !== "pending"',
+    '[class.is-full]': 'motion() === "full"',
     '[class.is-settled]': 'motion() === "settled"',
   },
 })
@@ -57,7 +60,7 @@ export class TraceFigure {
       // Anything already on screen must not vanish to animate back in. Paint timing entries arrive
       // after the frame is shown, too late to tell; src/index.html marks the first frame instead.
       const painted = document.documentElement.hasAttribute('data-painted');
-      this.motion.set(painted ? 'settled' : 'playing');
+      this.motion.set(painted ? 'leaders' : 'full');
       // Runs once the motion classes are in the DOM, in the same frame.
       afterNextRender(() => this.settleWhenMotionEnds(), { injector });
 

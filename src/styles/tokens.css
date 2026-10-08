@@ -158,7 +158,8 @@
   --duration-dot: 120ms;
   --duration-reveal: 360ms;
   --delay-draw: 400ms;
-  --delay-arrive: 820ms;
+  --delay-leader-end: 420ms;
+  --delay-arrive: calc(var(--delay-draw) + var(--delay-leader-end));
   --stagger: 70ms;
   --stagger-reveal: 110ms;
   --ease-sweep: cubic-bezier(0.4, 0, 0.2, 1);

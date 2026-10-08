@@ -1,4 +1,5 @@
 :host {
+  --leader-start: 0s;
   position: relative;
   display: grid;
   gap: var(--space-10);
@@ -209,28 +210,35 @@ mark {
     stroke-dasharray: 1;
   }
 
-  :host(.is-drawn:not(.is-settled)) mark {
+  /* The full sequence, before the first paint: highlights sweep, leaders draw, records appear. */
+  :host(.is-full) {
+    --leader-start: var(--delay-draw);
+  }
+
+  :host(.is-full) mark {
     animation: sweep var(--duration-sweep) var(--ease-sweep) calc(var(--i) * var(--stagger))
       backwards;
   }
 
+  :host(.is-full) .trace-record {
+    animation: appear var(--duration-reveal) ease-out
+      calc(var(--delay-arrive) + var(--i) * var(--stagger-reveal)) backwards;
+  }
+
   :host(.is-drawn:not(.is-settled)) .trace-leaders path {
     animation: draw var(--duration-draw) var(--ease-draw)
-      calc(var(--delay-draw) + var(--i) * var(--stagger)) backwards;
+      calc(var(--leader-start) + var(--i) * var(--stagger)) backwards;
   }
 
   :host(.is-drawn:not(.is-settled)) .trace-leaders circle {
-    animation: appear var(--duration-dot) linear calc(var(--delay-draw) + var(--i) * var(--stagger))
-      backwards;
+    animation: appear var(--duration-dot) linear
+      calc(var(--leader-start) + var(--i) * var(--stagger)) backwards;
   }
 
   :host(.is-drawn:not(.is-settled)) .trace-leaders circle:last-child {
-    animation-delay: calc(var(--delay-arrive) + var(--i) * var(--stagger));
-  }
-
-  :host(.is-drawn:not(.is-settled)) .trace-record {
-    animation: appear var(--duration-reveal) ease-out
-      calc(var(--delay-arrive) + var(--i) * var(--stagger-reveal)) backwards;
+    animation-delay: calc(
+      var(--leader-start) + var(--delay-leader-end) + var(--i) * var(--stagger)
+    );
   }
 }
 

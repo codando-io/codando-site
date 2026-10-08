@@ -45,23 +45,29 @@ describe('TraceFigure', () => {
     return fixture.nativeElement.querySelector('figure');
   }
 
-  it('plays the motion when nothing is on screen yet, and settles once it ends', async () => {
+  const classesOf = (element: Element) => [...element.classList].sort();
+
+  it('plays the full sequence when nothing is on screen yet, and settles once it ends', async () => {
     const figure = await render();
 
-    expect([...figure.classList]).toEqual(['trace', 'is-drawn']);
-    expect(classesWhenAnimationsRead).toContain('is-drawn');
+    expect(classesOf(figure)).toEqual(['is-drawn', 'is-full', 'trace']);
+    expect(classesWhenAnimationsRead).toEqual(expect.arrayContaining(['is-drawn', 'is-full']));
     expect(figure.querySelectorAll('.trace-leaders path')).toHaveLength(3);
 
     endMotion();
-    await vi.waitFor(() => expect(figure.classList).toContain('is-settled'));
+    await vi.waitFor(() => expect(classesOf(figure)).toEqual(['is-drawn', 'is-settled', 'trace']));
   });
 
-  it('draws the leaders without motion when the page was already painted', async () => {
+  it('animates only the leaders when the page was already painted, and settles once they end', async () => {
     document.documentElement.setAttribute('data-painted', '');
 
     const figure = await render();
 
-    expect([...figure.classList]).toEqual(['trace', 'is-drawn', 'is-settled']);
+    expect(classesOf(figure)).toEqual(['is-drawn', 'trace']);
+    expect(classesWhenAnimationsRead).toContain('is-drawn');
     expect(figure.querySelectorAll('.trace-leaders path')).toHaveLength(3);
+
+    endMotion();
+    await vi.waitFor(() => expect(classesOf(figure)).toEqual(['is-drawn', 'is-settled', 'trace']));
   });
 });

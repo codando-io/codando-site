@@ -59,10 +59,11 @@ hydrates the prerendered HTML.
   `.text-link`, `.product-heading`, `.product-meta`, `.nowrap`, `.visually-hidden`).
 - The trace figure (`sections/trace-figure/`) draws leader lines from each highlighted source
   value to the record built from it. `leaders.ts` is the pure geometry; the component measures
-  after the first render, on resize, and when fonts load. It plays the motion only if the page
-  has not rendered a frame yet (`data-painted` absent), so visible content never vanishes to
-  animate back in, then settles for good. The bundle usually runs after the first frame, so the
-  motion is usually skipped (ADR 0001). Below 880px a CSS connector stands in for the leaders.
+  after the first render, on resize, and when fonts load. If the page has not rendered a frame
+  yet (`data-painted` absent), it plays the full motion (`is-full`: highlights, leaders,
+  records); after the first frame it animates only the leaders, so visible content never
+  vanishes to animate back in (ADR 0001). Then it settles for good (`is-settled`), so crossing
+  880px never replays anything. Below 880px a CSS connector stands in for the leaders.
 
 ## Conventions
 
@@ -103,12 +104,13 @@ Copy these when adding something similar:
 ## Testing
 
 Vitest with jsdom through `@angular/build:unit-test` (`ng test`). Specs sit next to the code: the
-catalog components, `leaders.spec.ts` (geometry), `trace-figure.spec.ts` (motion plays before the
-first frame and settles when it ends; skipped after it), `content/trace.spec.ts` (every marker
-pairs one field with one record), `products.spec.ts` (the exact product links, no new tabs), and
-`app.spec.ts` (one `h1`; in-page links target the main content, the sections, and `#top`, the
-body's id). jsdom has no layout, so the figure and app specs stub `ResizeObserver`,
-`document.fonts`, and `getAnimations`, and remove the stubs after each test.
+catalog components, `leaders.spec.ts` (geometry), `trace-figure.spec.ts` (the full motion before
+the first frame, the leaders only after it, settled once the animations end),
+`content/trace.spec.ts` (every marker pairs one field with one record), `products.spec.ts` (the
+exact product links, no new tabs), and `app.spec.ts` (one `h1`; in-page links target the main
+content, the sections, and `#top`, the body's id). jsdom has no layout, so the figure and app
+specs stub `ResizeObserver`, `document.fonts`, and `getAnimations`, and remove the stubs after
+each test.
 One spec: `npx ng test --watch=false --include src/app/sections/trace-figure/leaders.spec.ts`.
 
 Visual changes have no automated screenshot test in the repository. Check them in a browser
