@@ -1,0 +1,37 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-target);
+  padding: var(--space-2) var(--space-5);
+  border: var(--border-hairline) solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-strong);
+  line-height: var(--leading-control);
+  text-decoration: none;
+}
+
+:host(.ui-button--sm) {
+  padding-inline: var(--space-4);
+  font-size: var(--text-md);
+}
+
+:host(.ui-button--primary) {
+  background: var(--color-text);
+  color: var(--color-page);
+}
+
+:host(.ui-button--primary:hover) {
+  background: var(--color-action-hover);
+  color: var(--color-page);
+}
+
+:host(.ui-button--secondary) {
+  border-color: var(--color-rule-strong);
+  color: var(--color-text);
+}
+
+:host(.ui-button--secondary:hover) {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
