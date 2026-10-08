@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 id="products-title">Products</h2>
+  <p class="lead">
+    Software products designed to make complex information easier to understand and use.
+  </p>
+  <article appPrumoPanel></article>
+  <div class="products">
+    @for (product of products; track product.name) {
+      <article appProductEntry class="product" [product]="product"></article>
+    }
+  </div>
+</div>

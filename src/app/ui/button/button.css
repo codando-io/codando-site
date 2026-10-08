@@ -31,6 +31,7 @@
   color: var(--color-text);
 }
 
+/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
 :host(.ui-button--secondary:hover) {
   border-color: var(--color-accent);
   color: var(--color-accent);

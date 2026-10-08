@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  padding-block: var(--space-12) var(--space-8);
+  border-top: var(--border-hairline) solid var(--color-rule);
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-6) var(--space-12);
+}
+
+.footer-tagline {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-6);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.footer-domain {
+  color: var(--color-text-muted);
+}
+
+/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
+.footer-domain:hover {
+  color: var(--color-accent);
+}

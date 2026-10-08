@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-gutter);
+  z-index: var(--z-skip-link);
+  padding: var(--space-2-5) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-text);
+  color: var(--color-page);
+  font-weight: var(--weight-semibold);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.skip-link:hover {
+  color: var(--color-page);
+}
+
+main {
+  scroll-margin-top: var(--space-24);
+}

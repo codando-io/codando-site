@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  padding-block: var(--space-hero-top) var(--space-section);
+}
+
+.hero-title {
+  max-width: var(--measure-hero);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-hero);
+  line-height: var(--leading-hero);
+}
+
+.hero-lead {
+  max-width: var(--measure-hero-lead);
+  margin-top: var(--space-6);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-9);
+}

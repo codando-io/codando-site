@@ -1,0 +1,66 @@
+.graph-svg {
+  width: 100%;
+  max-width: var(--size-diagram);
+  height: auto;
+  font-family: var(--font-sans);
+}
+
+.graph-svg text {
+  dominant-baseline: central;
+  text-anchor: middle;
+}
+
+.graph-edges line {
+  stroke: var(--color-rule-strong);
+  stroke-width: var(--stroke-diagram);
+  marker-end: url('#graph-arrow');
+}
+
+.graph-arrow {
+  fill: var(--color-text-muted);
+}
+
+.graph-edge-labels text {
+  fill: var(--color-text-muted);
+  font-size: var(--text-diagram-label);
+  paint-order: stroke;
+  stroke: var(--color-page);
+  stroke-width: var(--stroke-diagram-halo);
+  stroke-linejoin: round;
+}
+
+.graph-nodes rect {
+  fill: var(--color-page);
+  stroke: var(--color-rule-strong);
+  stroke-width: var(--stroke-diagram);
+}
+
+.graph-nodes .graph-candidate {
+  stroke: var(--color-accent);
+  stroke-width: var(--stroke-diagram-emphasis);
+}
+
+.graph-nodes text {
+  fill: var(--color-text);
+  font-size: var(--text-diagram-node);
+  font-weight: var(--weight-medium);
+}
+
+.graph-nodes .graph-candidate-label {
+  font-weight: var(--weight-heavy);
+}
+
+.graph-caption {
+  max-width: var(--size-diagram);
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 880px) {
+  :host {
+    justify-self: end;
+    width: 100%;
+    max-width: var(--size-diagram);
+  }
+}

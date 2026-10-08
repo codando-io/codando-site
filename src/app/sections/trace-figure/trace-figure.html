@@ -1,0 +1,43 @@
+<div class="trace-page" #page>
+  <p class="trace-source">TSE open data</p>
+  <p class="trace-file">receitas_<wbr />candidatos_<wbr />2026_<wbr />BRASIL.csv</p>
+  <dl class="trace-fields">
+    @for (field of fields; track field.name) {
+      <div>
+        <dt>{{ field.name }}</dt>
+        <dd>
+          @if (field.marker; as marker) {
+            <mark [style.--i]="sequence(marker)">{{ field.value }}</mark
+            ><sup class="trace-marker" #markerElement>{{ marker }}</sup>
+          } @else {
+            {{ field.value }}
+          }
+        </dd>
+      </div>
+    }
+  </dl>
+</div>
+<ol class="trace-records">
+  @for (record of records; track record.marker) {
+    <li class="trace-record" #recordElement [style.--i]="sequence(record.marker)">
+      <p class="trace-type">
+        <span class="trace-number">{{ record.marker }}</span> {{ record.type }}
+      </p>
+      <p class="trace-value">{{ record.value }}</p>
+      <p class="trace-ref">{{ record.provenance }}</p>
+    </li>
+  }
+</ol>
+<svg class="trace-leaders" aria-hidden="true">
+  @for (leader of leaders(); track leader.marker) {
+    <g [style.--i]="$index">
+      <path pathLength="1" [attr.d]="leader.d" />
+      <circle r="3" [attr.cx]="leader.start.x" [attr.cy]="leader.start.y" />
+      <circle r="3" [attr.cx]="leader.end.x" [attr.cy]="leader.end.y" />
+    </g>
+  }
+</svg>
+<figcaption id="trace-caption" class="trace-caption">
+  Illustrative example. A record from the electoral court’s open data, and what Prumo builds from
+  it. Every figure keeps a link to its source.
+</figcaption>

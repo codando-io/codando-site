@@ -1,0 +1,37 @@
+:host {
+  position: sticky;
+  top: var(--space-0);
+  z-index: var(--z-header);
+  border-bottom: var(--border-hairline) solid var(--color-rule);
+  background: var(--color-page);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: var(--space-6);
+  min-height: var(--size-header);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+.nav-list {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.header-cta {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .header-cta {
+    display: inline-flex;
+  }
+}

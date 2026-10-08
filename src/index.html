@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
-  <body>
+  <body id="top">
+    <!-- Marks the first rendered frame. The hero figure plays its motion only before it. -->
+    <script>
+      requestAnimationFrame(() => document.documentElement.setAttribute('data-painted', ''));
+    </script>
     <app-root></app-root>
   </body>
 </html>

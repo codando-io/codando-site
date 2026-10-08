@@ -1,0 +1,59 @@
+:host {
+  border-block: var(--surface-edge);
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
+.prumo-intro {
+  display: grid;
+  gap: var(--space-14);
+}
+
+.prumo-text > p {
+  max-width: var(--measure-text);
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+}
+
+.prumo-text > h2 + p {
+  margin-top: var(--space-6);
+}
+
+.prumo-text > .prumo-note {
+  margin-top: var(--space-8);
+  font-size: var(--text-md);
+}
+
+.callout {
+  margin-top: var(--space-10);
+  padding-left: var(--space-6);
+  border-left: var(--border-callout) solid var(--color-accent);
+}
+
+.callout p {
+  margin-top: var(--space-2);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.next {
+  max-width: var(--size-next);
+  margin-top: var(--space-block-lg);
+  padding: var(--space-6) var(--space-7) var(--space-7);
+  border: var(--border-hairline) dashed var(--color-rule-strong);
+  border-radius: var(--radius-lg);
+}
+
+.next p {
+  max-width: var(--measure-text);
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 880px) {
+  .prumo-intro {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+    gap: var(--space-columns);
+  }
+}

@@ -1,0 +1,18 @@
+@let item = product();
+<div class="product-heading">
+  <h3>{{ item.name }}</h3>
+  <ui-status-chip [status]="item.status" />
+</div>
+<p class="product-meta">{{ item.category }}</p>
+<p class="product-description">{{ item.description }}</p>
+@if (item.note; as note) {
+  <p class="product-note">{{ note }}</p>
+}
+<p class="product-links">
+  <a class="open-link" [href]="item.appUrl"
+    ><span class="link-label">Open {{ item.name }}</span
+    >&ngsp;<span class="link-domain">{{ appHost() }}</span></a
+  >&ngsp;<a class="text-link" [href]="item.sourceUrl"
+    >Source code<span class="visually-hidden"> for {{ item.name }}</span></a
+  >
+</p>
