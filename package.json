@@ -8,7 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint:tokens": "node scripts/check-tokens.mjs",
-    "preview": "node scripts/serve.mjs"
+    "preview": "node scripts/serve.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "images": "node scripts/render-images.mjs",
+    "validate": "html-validate dist/codando-site/browser/index.html"
   },
   "private": true,
   "packageManager": "npm@11.16.0",
@@ -32,6 +35,7 @@
     "@angular/cli": "^22.2.2",
     "@angular/compiler-cli": "^22.2.0",
     "@types/node": "^22.12.0",
+    "html-validate": "^11.16.2",
     "jsdom": "^30.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Codando Open Graph image</title>
+    <style>
+      @font-face {
+        font-family: 'Schibsted Grotesk';
+        src: url('../public/fonts/schibsted-grotesk-latin-wght-normal.woff2') format('woff2');
+        font-weight: 400 900;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #f6f7f8;
+        color: #0e1423;
+        font-family: 'Schibsted Grotesk', sans-serif;
+      }
+
+      .brand {
+        position: absolute;
+        top: 60px;
+        left: 72px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 30px;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+
+      .brand svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      h1 {
+        position: absolute;
+        top: 140px;
+        left: 72px;
+        width: 1000px;
+        font-size: 66px;
+        font-weight: 620;
+        letter-spacing: -0.035em;
+        line-height: 1.04;
+        text-wrap: balance;
+      }
+
+      .row {
+        position: absolute;
+        top: 462px;
+        left: 72px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        width: 420px;
+        height: 64px;
+        padding-inline: 26px;
+        border: 1px solid #dcdfe5;
+        border-radius: 4px;
+        background: #fff;
+        font:
+          21px/1 ui-monospace,
+          'SF Mono',
+          Menlo,
+          Consolas,
+          monospace;
+      }
+
+      .key {
+        color: #4a5163;
+      }
+
+      mark {
+        padding: 5px 6px;
+        border-radius: 3px;
+        background: #e2e7ff;
+        color: inherit;
+      }
+
+      sup {
+        position: relative;
+        top: -11px;
+        margin-left: 4px;
+        color: #2b4acb;
+        font:
+          700 15px 'Schibsted Grotesk',
+          sans-serif;
+      }
+
+      .record {
+        position: absolute;
+        top: 414px;
+        left: 600px;
+        width: 528px;
+        height: 132px;
+        padding: 22px 28px;
+        border: 1px solid #dcdfe5;
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      .type {
+        color: #4a5163;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .type b {
+        margin-right: 8px;
+        color: #2b4acb;
+        font-weight: 700;
+      }
+
+      .value {
+        margin-top: 6px;
+        font-size: 24px;
+        white-space: nowrap;
+        font-weight: 560;
+        letter-spacing: -0.01em;
+      }
+
+      .ref {
+        margin-top: 8px;
+        color: #4a5163;
+        font-size: 17px;
+      }
+
+      .leader {
+        position: absolute;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0E1423" />
+        <path
+          d="M42.6 42.6A15 15 0 1 1 42.6 21.4"
+          fill="none"
+          stroke="#F6F7F8"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+        <circle cx="42.6" cy="21.4" r="6" fill="#F6F7F8" />
+      </svg>
+      Codando
+    </div>
+    <h1>Building intelligent software for a more transparent and connected world.</h1>
+    <div class="row">
+      <span class="key">VR_RECEITA</span>
+      <span><mark>"25000,00"</mark><sup>1</sup></span>
+    </div>
+    <div class="record">
+      <p class="type"><b>1</b>Donation</p>
+      <p class="value">R$&nbsp;25,000.00, received on August 14, 2026</p>
+      <p class="ref">Official value, as published by the TSE</p>
+    </div>
+    <svg class="leader" viewBox="0 0 1200 630" aria-hidden="true">
+      <path
+        d="M491.5 494C546 494 546 480 600.5 480"
+        fill="none"
+        stroke="#2B4ACB"
+        stroke-width="1.5"
+      />
+      <circle cx="491.5" cy="494" r="4" fill="#2B4ACB" />
+      <circle cx="600.5" cy="480" r="4" fill="#2B4ACB" />
+    </svg>
+  </body>
+</html>
