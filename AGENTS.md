@@ -124,16 +124,19 @@ prerendered `<h1>`.
 
 ## Delivery
 
-| Item                | Value                                                      |
-| ------------------- | ---------------------------------------------------------- |
-| CI on every change  | missing                                                    |
-| Hosting / provider  | (unknown - ask the team): any static host serves the build |
-| Environments        | local only                                                 |
-| Staging gate        | missing                                                    |
-| Deploy trigger      | manual upload of `dist/codando-site/browser/` (not set up) |
-| Rollback            | upload the previous build                                  |
-| Feature flags       | missing                                                    |
-| Database migrations | none (no database)                                         |
+| Item                | Value                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------- |
+| CI on every change  | missing                                                                                 |
+| Hosting / provider  | gemma, the NixOS VPS in `oss/infra`: nginx behind Traefik (`hosts/gemma/codando.nix`)   |
+| Environments        | production only                                                                         |
+| Staging gate        | missing                                                                                 |
+| Deploy trigger      | tag `vX.Y.Z` here, then point the infra `codando-site` input at it and merge infra main |
+| Rollback            | point the infra input back at the previous tag and merge infra main                     |
+| Feature flags       | missing                                                                                 |
+| Database migrations | none (no database)                                                                      |
+
+The infra package (`pkgs/codando-site.nix`) builds this repository with `buildNpmPackage`, so its
+`npmDepsHash` changes whenever `package-lock.json` does, including a version bump.
 
 ## Security notes
 
