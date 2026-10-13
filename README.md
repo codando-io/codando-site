@@ -16,8 +16,9 @@ src/styles.css             font face, reset, base styles, classes shared by sect
 src/app/ui/                catalog: button, status chip, wordmark
 src/app/sections/          one component per page section, header, and footer
 src/app/content/           the copy rendered in lists, as typed data
-public/                    fonts (Schibsted Grotesk and its SIL Open Font License), icons,
-                           Open Graph image, robots.txt, sitemap.xml
+public/                    fonts (Plus Jakarta Sans and JetBrains Mono, latin subset, with
+                           their SIL Open Font Licenses), icons, Open Graph image,
+                           robots.txt, sitemap.xml
 design/og-image.html       source for the Open Graph image, 1200x630
 scripts/                   preview server, link checker, token check, image renderer
 ```
