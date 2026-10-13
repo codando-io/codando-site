@@ -1,19 +1,19 @@
 # Codando website
 
-The company website for [Codando](https://codando.io): one page that presents the company, its
-products (Prumo, Agora, and Cenaculum), and the technology behind them.
+The company website for [Codando](https://codando.io): one page that presents the company, what
+it is building (Prumo), the products that are live (Agora and Cenaculum), and how it builds them.
 
 It is an Angular 22 application prerendered to static files at build time
 ([ADR 0001](docs/adr/0001-prerender-the-site-with-angular.md)). The page is complete HTML without
-JavaScript; the bundle hydrates it and draws the leader lines in the hero figure.
+JavaScript; the bundle hydrates it. Its only motion is CSS.
 
 ## Layout
 
 ```
 src/index.html             head metadata: title, description, Open Graph, icons, JSON-LD
-src/styles/tokens.css      design tokens (colors, spacing, type, strokes, motion), both schemes
+src/styles/tokens.css      design tokens (colors, meshes, spacing, type, shadows, motion), both schemes
 src/styles.css             font face, reset, base styles, classes shared by sections
-src/app/ui/                catalog: button, status chip, wordmark
+src/app/ui/                catalog: button, card, status chip, wordmark
 src/app/sections/          one component per page section, header, and footer
 src/app/content/           the copy rendered in lists, as typed data
 public/                    fonts (Plus Jakarta Sans and JetBrains Mono, latin subset, with

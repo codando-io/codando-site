@@ -33,22 +33,17 @@ bundle hydrates that HTML. No router, no server at runtime.
 ## Consequences
 
 - The page is complete HTML without JavaScript. With JavaScript, the browser downloads a 216 kB
-  bundle (61 kB with Brotli, 69 kB with gzip) to hydrate the page and draw the leader lines,
-  where the reference needed 2.5 kB.
-- The hero figure plays its full motion (highlights sweep, leaders draw, records appear) only if
-  the page has not rendered a frame yet, because content already on screen must not vanish to
-  animate back in. After the first frame only the leader lines animate, since they were never on
-  screen. The reference's small script usually ran before that frame; the bundle usually runs
-  after it. Measured on 2026-10-08 in headless Chrome, cache disabled, against the local preview:
-  the reference played the full motion unthrottled and throttled to DevTools' Fast 4G and Slow 4G
-  figures. This build animated only the leaders in all three, with no animation on highlights or
-  records. In eight more unthrottled loads it played the full motion five times, each starting
-  before the first paint.
+  bundle (61 kB with Brotli, 69 kB with gzip) to hydrate the page, where the reference needed
+  2.5 kB to draw the hero figure's leader lines.
+- Update, 2026-10-13: the redesign removed the hero figure and its leader lines, and with them
+  the first-paint marker that chose between full and partial motion. The only motion left is CSS
+  (the hero's status board fades in once; the status lights pulse), so it no longer depends on
+  when the bundle runs, and reduced motion shows the final state.
 - Any static host serves the site: upload `dist/codando-site/browser/`. Hashed bundle names allow
   long cache lifetimes for the JavaScript and CSS.
 - Angular major upgrades follow the harness `dependency-update` skill, one major at a time.
 - Visual changes go through `src/styles/tokens.css` and the catalog in `src/app/ui/`;
   `npm run lint:tokens` rejects raw colors and pixel spacing elsewhere.
 - Reversible at low cost: the prerendered `index.html` and its stylesheet are the site. Going back
-  to plain files means keeping that output and replacing the bundle with a small script for the
-  leaders.
+  to plain files means keeping that output and dropping the bundle; since the redesign, the page
+  needs no script.
