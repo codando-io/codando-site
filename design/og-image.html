@@ -10,9 +10,16 @@
         font-weight: 200 800;
       }
 
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('../public/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2');
+        font-weight: 100 800;
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
+        padding: 0;
       }
 
       body {
@@ -20,20 +27,33 @@
         width: 1200px;
         height: 630px;
         overflow: hidden;
-        background: #f6f7f8;
-        color: #0e1423;
+        background:
+          radial-gradient(at 0% 0%, rgb(34 211 238 / 0.16) 0, transparent 50%),
+          radial-gradient(at 0% 100%, rgb(8 145 178 / 0.1) 0, transparent 50%),
+          radial-gradient(at 92% 40%, rgb(16 185 129 / 0.07) 0, transparent 50%), #ffffff;
+        color: #0f172a;
         font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      body::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 0),
+          linear-gradient(to bottom, rgb(15 23 42 / 0.04) 1px, transparent 0);
+        background-size: 48px 48px;
       }
 
       .brand {
         position: absolute;
-        top: 60px;
+        top: 64px;
         left: 72px;
         display: flex;
         align-items: center;
         gap: 14px;
         font-size: 30px;
-        font-weight: 650;
+        font-weight: 800;
         letter-spacing: -0.02em;
       }
 
@@ -42,101 +62,130 @@
         height: 42px;
       }
 
-      h1 {
+      .kicker {
         position: absolute;
-        top: 140px;
+        top: 196px;
         left: 72px;
-        width: 1000px;
-        font-size: 66px;
-        font-weight: 620;
-        letter-spacing: -0.035em;
-        line-height: 1.04;
-        text-wrap: balance;
+        padding: 7px 14px;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        background: rgb(255 255 255 / 0.72);
+        color: #0e7490;
+        font:
+          500 14px/1.2 'JetBrains Mono',
+          monospace;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
       }
 
-      .row {
+      h1 {
         position: absolute;
-        top: 462px;
+        top: 254px;
         left: 72px;
+        width: 620px;
+        font-size: 62px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+
+      .board {
+        position: absolute;
+        top: 128px;
+        right: 72px;
+        width: 400px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow:
+          0 2px 4px rgb(15 23 42 / 0.04),
+          0 24px 64px rgb(15 23 42 / 0.12);
+      }
+
+      .board-header,
+      .board-summary {
         display: flex;
         align-items: center;
-        gap: 28px;
-        width: 420px;
-        height: 64px;
-        padding-inline: 26px;
-        border: 1px solid #dcdfe5;
-        border-radius: 4px;
-        background: #fff;
+        gap: 16px;
+        padding: 14px 22px;
+        background: #f8fafc;
+        color: #475569;
         font:
-          21px/1 ui-monospace,
-          'SF Mono',
-          Menlo,
-          Consolas,
+          400 15px/1.4 'JetBrains Mono',
           monospace;
       }
 
-      .key {
-        color: #4a5163;
+      .board-header {
+        border-bottom: 1px solid #e2e8f0;
       }
 
-      mark {
-        padding: 5px 6px;
-        border-radius: 3px;
-        background: #e2e7ff;
-        color: inherit;
+      .board-summary {
+        border-top: 1px solid #e2e8f0;
       }
 
-      sup {
-        position: relative;
-        top: -11px;
-        margin-left: 4px;
-        color: #2b4acb;
-        font:
-          700 15px 'Plus Jakarta Sans',
-          sans-serif;
+      .dots {
+        width: 9px;
+        height: 9px;
+        margin-right: 30px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        box-shadow:
+          14px 0 #cbd5e1,
+          28px 0 #cbd5e1;
       }
 
-      .record {
-        position: absolute;
-        top: 414px;
-        left: 600px;
-        width: 528px;
-        height: 132px;
-        padding: 22px 28px;
-        border: 1px solid #dcdfe5;
-        border-radius: 10px;
-        background: #fff;
+      .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        row-gap: 4px;
+        padding: 18px 22px;
       }
 
-      .type {
-        color: #4a5163;
-        font-size: 18px;
-        font-weight: 500;
+      .row + .row {
+        border-top: 1px solid #e2e8f0;
       }
 
-      .type b {
-        margin-right: 8px;
-        color: #2b4acb;
+      .name {
+        font-size: 22px;
         font-weight: 700;
-      }
-
-      .value {
-        margin-top: 6px;
-        font-size: 24px;
-        white-space: nowrap;
-        font-weight: 560;
         letter-spacing: -0.01em;
       }
 
-      .ref {
-        margin-top: 8px;
-        color: #4a5163;
+      .category {
+        grid-column: 1 / -1;
+        color: #475569;
         font-size: 17px;
       }
 
-      .leader {
-        position: absolute;
-        inset: 0;
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 5px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        color: #475569;
+        font:
+          500 14px/1.2 'JetBrains Mono',
+          monospace;
+      }
+
+      .chip::before {
+        content: '';
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
+
+      .live::before {
+        background: #10b981;
+        box-shadow: 0 0 8px 1px rgb(16 185 129 / 0.45);
+      }
+
+      .dev::before {
+        border: 1.5px solid #0891b2;
       }
     </style>
   </head>
@@ -155,25 +204,23 @@
       </svg>
       Codando
     </div>
-    <h1>Building intelligent software for a more transparent and connected world.</h1>
-    <div class="row">
-      <span class="key">VR_RECEITA</span>
-      <span><mark>"25000,00"</mark><sup>1</sup></span>
+    <p class="kicker">Independent software company</p>
+    <h1>We design and build software products, end to end.</h1>
+    <div class="board">
+      <p class="board-header"><span class="dots"></span>codando.io / products</p>
+      <div class="row">
+        <span class="name">Prumo</span><span class="chip dev">In development</span
+        ><span class="category">Electoral transparency</span>
+      </div>
+      <div class="row">
+        <span class="name">Agora</span><span class="chip live">Live</span
+        ><span class="category">Federated chat, voice, and video</span>
+      </div>
+      <div class="row">
+        <span class="name">Cenaculum</span><span class="chip live">Live</span
+        ><span class="category">Screen-sharing rooms</span>
+      </div>
+      <p class="board-summary">2 live, 1 in development</p>
     </div>
-    <div class="record">
-      <p class="type"><b>1</b>Donation</p>
-      <p class="value">R$&nbsp;25,000.00, received on August 14, 2026</p>
-      <p class="ref">Official value, as published by the TSE</p>
-    </div>
-    <svg class="leader" viewBox="0 0 1200 630" aria-hidden="true">
-      <path
-        d="M491.5 494C546 494 546 480 600.5 480"
-        fill="none"
-        stroke="#2B4ACB"
-        stroke-width="1.5"
-      />
-      <circle cx="491.5" cy="494" r="4" fill="#2B4ACB" />
-      <circle cx="600.5" cy="480" r="4" fill="#2B4ACB" />
-    </svg>
   </body>
 </html>
