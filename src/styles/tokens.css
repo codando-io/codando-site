@@ -9,43 +9,44 @@
   color-scheme: light dark;
 
   /* Colors */
-  --color-page: #ffffff;
+  /* Iris on Cloud Dancer: Pantone 11-4201 as the page, one iris violet as the brand */
+  --color-page: #f0eee9;
   --color-surface: #ffffff;
-  --color-well: #f8fafc;
-  --color-header: rgb(255 255 255 / 0.82);
+  --color-well: #e9e6df;
+  --color-header: rgb(240 238 233 / 0.85);
   --color-badge: rgb(255 255 255 / 0.72);
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-rule: #e2e8f0;
-  --color-rule-strong: #cbd5e1;
-  --color-brand: #0891b2;
-  --color-brand-ink: #0e7490;
-  --color-brand-soft: #ecfeff;
+  --color-text: #1c1830;
+  --color-text-muted: #5a5470;
+  --color-rule: #ddd9d0;
+  --color-rule-strong: #c8c3b8;
+  --color-brand: #6e5bea;
+  --color-brand-ink: #5038cf;
+  --color-brand-soft: #eeebff;
   --color-live: #10b981;
-  --color-action: #0e7490;
-  --color-action-hover: #155e75;
+  --color-action: #5038cf;
+  --color-action-hover: #3f2baf;
   --color-on-action: #ffffff;
-  --color-grid-line: rgb(15 23 42 / 0.04);
+  --color-grid-line: rgb(28 24 48 / 0.045);
 
   /* Pulses: the live LED glows and the in-development ring sends out a halo */
   --pulse-live-from: 0 0 0 0 rgb(16 185 129 / 0);
   --pulse-live-to: 0 0 0.6rem 0.1rem rgb(16 185 129 / 0.55);
-  --pulse-ring-from: 0 0 0 0 rgb(8 145 178 / 0.35);
-  --pulse-ring-to: 0 0 0 0.3rem rgb(8 145 178 / 0);
+  --pulse-ring-from: 0 0 0 0 rgb(110 91 234 / 0.35);
+  --pulse-ring-to: 0 0 0 0.3rem rgb(110 91 234 / 0);
 
   /* Backgrounds: the hero's mesh and the contact band's */
   --mesh-hero:
-    radial-gradient(at 0% 0%, rgb(34 211 238 / 0.16) 0, transparent 50%),
-    radial-gradient(at 0% 100%, rgb(8 145 178 / 0.1) 0, transparent 50%),
-    radial-gradient(at 92% 40%, rgb(16 185 129 / 0.07) 0, transparent 50%);
+    radial-gradient(at 0% 0%, rgb(110 91 234 / 0.16) 0, transparent 50%),
+    radial-gradient(at 0% 100%, rgb(167 139 250 / 0.12) 0, transparent 50%),
+    radial-gradient(at 92% 40%, rgb(255 255 255 / 0.6) 0, transparent 50%);
   --mesh-cta:
-    radial-gradient(at 10% 0%, rgb(34 211 238 / 0.3) 0, transparent 55%),
-    radial-gradient(at 90% 100%, rgb(8 145 178 / 0.4) 0, transparent 55%);
+    radial-gradient(at 10% 0%, rgb(110 91 234 / 0.45) 0, transparent 55%),
+    radial-gradient(at 90% 100%, rgb(167 139 250 / 0.3) 0, transparent 55%);
 
   /* Shadows */
-  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 12px 32px rgb(15 23 42 / 0.07);
-  --shadow-raised: 0 2px 4px rgb(15 23 42 / 0.04), 0 24px 64px rgb(15 23 42 / 0.12);
-  --shadow-action: 0 1px 2px rgb(8 145 178 / 0.3), 0 8px 24px rgb(8 145 178 / 0.18);
+  --shadow-card: 0 1px 2px rgb(28 24 48 / 0.04), 0 12px 32px rgb(28 24 48 / 0.07);
+  --shadow-raised: 0 2px 4px rgb(28 24 48 / 0.04), 0 24px 64px rgb(28 24 48 / 0.12);
+  --shadow-action: 0 1px 2px rgb(80 56 207 / 0.3), 0 8px 24px rgb(80 56 207 / 0.18);
 
   /* Type */
   --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -163,44 +164,43 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-page: #0a0f1c;
-    --color-surface: #0f172a;
-    --color-well: #0c1322;
-    --color-header: rgb(10 15 28 / 0.82);
-    --color-badge: rgb(15 23 42 / 0.6);
-    --color-text: #f1f5f9;
-    --color-text-muted: #94a3b8;
+    --color-page: #110e1b;
+    --color-surface: #1a1628;
+    --color-well: #15121f;
+    --color-header: rgb(17 14 27 / 0.82);
+    --color-badge: rgb(26 22 40 / 0.6);
+    --color-text: #f0eee9;
+    --color-text-muted: #aba5be;
     --color-rule: rgb(255 255 255 / 0.08);
     --color-rule-strong: rgb(255 255 255 / 0.16);
-    --color-brand: #22d3ee;
-    --color-brand-ink: #67e8f9;
-    --color-brand-soft: rgb(8 145 178 / 0.16);
-    /* White text needs #0e7490 for 4.5:1; #0891b2 reaches only 3.68:1. */
-    --color-action: #0e7490;
-    --color-action-hover: #155e75;
+    --color-brand: #9d8cff;
+    --color-brand-ink: #b9adff;
+    --color-brand-soft: rgb(110 91 234 / 0.18);
+    --color-action: #5038cf;
+    --color-action-hover: #3f2baf;
     --color-grid-line: rgb(255 255 255 / 0.04);
-    --pulse-ring-from: 0 0 0 0 rgb(34 211 238 / 0.35);
-    --pulse-ring-to: 0 0 0 0.3rem rgb(34 211 238 / 0);
+    --pulse-ring-from: 0 0 0 0 rgb(157 140 255 / 0.35);
+    --pulse-ring-to: 0 0 0 0.3rem rgb(157 140 255 / 0);
     --mesh-hero:
-      radial-gradient(at 0% 0%, rgb(34 211 238 / 0.2) 0, transparent 50%),
-      radial-gradient(at 0% 100%, rgb(8 145 178 / 0.16) 0, transparent 50%),
-      radial-gradient(at 92% 40%, rgb(16 185 129 / 0.09) 0, transparent 50%);
+      radial-gradient(at 0% 0%, rgb(110 91 234 / 0.24) 0, transparent 50%),
+      radial-gradient(at 0% 100%, rgb(167 139 250 / 0.12) 0, transparent 50%),
+      radial-gradient(at 92% 40%, rgb(110 91 234 / 0.08) 0, transparent 50%);
     --shadow-card: 0 1px 2px rgb(0 0 0 / 0.2), 0 8px 24px rgb(0 0 0 / 0.16);
     --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.2), 0 24px 64px rgb(0 0 0 / 0.32);
-    --shadow-action: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(8 145 178 / 0.2);
+    --shadow-action: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(80 56 207 / 0.25);
   }
 }
 
 /* The ink surface: a dark band that stays dark in both schemes (the contact band). */
 .surface-ink {
-  --color-page: #0a0f1c;
-  --color-text: #f8fafc;
-  --color-text-muted: #cbd5e1;
+  --color-page: #110e1b;
+  --color-text: #f7f5f0;
+  --color-text-muted: #d3cee0;
   --color-rule: rgb(255 255 255 / 0.12);
-  --color-brand-ink: #67e8f9;
+  --color-brand-ink: #b9adff;
   --color-action: #ffffff;
-  --color-action-hover: #ecfeff;
-  --color-on-action: #0e7490;
+  --color-action-hover: #eeebff;
+  --color-on-action: #5038cf;
   --shadow-action: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.3);
   --surface-edge: none;
 }

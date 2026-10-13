@@ -28,10 +28,10 @@
         height: 630px;
         overflow: hidden;
         background:
-          radial-gradient(at 0% 0%, rgb(34 211 238 / 0.16) 0, transparent 50%),
-          radial-gradient(at 0% 100%, rgb(8 145 178 / 0.1) 0, transparent 50%),
-          radial-gradient(at 92% 40%, rgb(16 185 129 / 0.07) 0, transparent 50%), #ffffff;
-        color: #0f172a;
+          radial-gradient(at 0% 0%, rgb(110 91 234 / 0.16) 0, transparent 50%),
+          radial-gradient(at 0% 100%, rgb(167 139 250 / 0.12) 0, transparent 50%),
+          radial-gradient(at 92% 40%, rgb(255 255 255 / 0.6) 0, transparent 50%), #f0eee9;
+        color: #1c1830;
         font-family: 'Plus Jakarta Sans', sans-serif;
       }
 
@@ -40,8 +40,8 @@
         position: absolute;
         inset: 0;
         background-image:
-          linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 0),
-          linear-gradient(to bottom, rgb(15 23 42 / 0.04) 1px, transparent 0);
+          linear-gradient(to right, rgb(28 24 48 / 0.04) 1px, transparent 0),
+          linear-gradient(to bottom, rgb(28 24 48 / 0.04) 1px, transparent 0);
         background-size: 48px 48px;
       }
 
@@ -67,10 +67,10 @@
         top: 196px;
         left: 72px;
         padding: 7px 14px;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #ddd9d0;
         border-radius: 999px;
         background: rgb(255 255 255 / 0.72);
-        color: #0e7490;
+        color: #5038cf;
         font:
           500 14px/1.2 'JetBrains Mono',
           monospace;
@@ -95,12 +95,12 @@
         right: 72px;
         width: 400px;
         overflow: hidden;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #ddd9d0;
         border-radius: 18px;
         background: #ffffff;
         box-shadow:
-          0 2px 4px rgb(15 23 42 / 0.04),
-          0 24px 64px rgb(15 23 42 / 0.12);
+          0 2px 4px rgb(28 24 48 / 0.04),
+          0 24px 64px rgb(28 24 48 / 0.12);
       }
 
       .board-header,
@@ -109,19 +109,19 @@
         align-items: center;
         gap: 16px;
         padding: 14px 22px;
-        background: #f8fafc;
-        color: #475569;
+        background: #f7f6f2;
+        color: #5a5470;
         font:
           400 15px/1.4 'JetBrains Mono',
           monospace;
       }
 
       .board-header {
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid #ddd9d0;
       }
 
       .board-summary {
-        border-top: 1px solid #e2e8f0;
+        border-top: 1px solid #ddd9d0;
       }
 
       .dots {
@@ -129,10 +129,10 @@
         height: 9px;
         margin-right: 30px;
         border-radius: 50%;
-        background: #cbd5e1;
+        background: #c8c3b8;
         box-shadow:
-          14px 0 #cbd5e1,
-          28px 0 #cbd5e1;
+          14px 0 #c8c3b8,
+          28px 0 #c8c3b8;
       }
 
       .row {
@@ -144,7 +144,7 @@
       }
 
       .row + .row {
-        border-top: 1px solid #e2e8f0;
+        border-top: 1px solid #ddd9d0;
       }
 
       .name {
@@ -155,7 +155,7 @@
 
       .category {
         grid-column: 1 / -1;
-        color: #475569;
+        color: #5a5470;
         font-size: 17px;
       }
 
@@ -164,9 +164,9 @@
         align-items: center;
         gap: 9px;
         padding: 5px 12px;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #ddd9d0;
         border-radius: 999px;
-        color: #475569;
+        color: #5a5470;
         font:
           500 14px/1.2 'JetBrains Mono',
           monospace;
@@ -185,22 +185,22 @@
       }
 
       .dev::before {
-        border: 1.5px solid #0891b2;
+        border: 1.5px solid #6e5bea;
       }
     </style>
   </head>
   <body>
     <div class="brand">
       <svg viewBox="0 0 64 64" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="#0E1423" />
+        <rect width="64" height="64" rx="14" fill="#1C1830" />
         <path
           d="M42.6 42.6A15 15 0 1 1 42.6 21.4"
           fill="none"
-          stroke="#F6F7F8"
+          stroke="#F0EEE9"
           stroke-width="7"
           stroke-linecap="round"
         />
-        <circle cx="42.6" cy="21.4" r="6" fill="#F6F7F8" />
+        <circle cx="42.6" cy="21.4" r="6" fill="#F0EEE9" />
       </svg>
       Codando
     </div>
