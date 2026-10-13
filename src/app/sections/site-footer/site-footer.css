@@ -34,6 +34,16 @@
   font-size: var(--text-sm);
 }
 
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+}
+
+.footer-legal abbr {
+  text-decoration: none;
+}
+
 .footer-domain {
   color: var(--color-text-muted);
 }
