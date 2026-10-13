@@ -1,3 +1,8 @@
+:host {
+  width: 100%;
+  max-width: var(--size-diagram);
+}
+
 .graph-svg {
   width: 100%;
   max-width: var(--size-diagram);
@@ -24,26 +29,27 @@
   fill: var(--color-text-muted);
   font-size: var(--text-diagram-label);
   paint-order: stroke;
-  stroke: var(--color-page);
+  stroke: var(--color-surface);
   stroke-width: var(--stroke-diagram-halo);
   stroke-linejoin: round;
 }
 
 .graph-nodes rect {
-  fill: var(--color-page);
+  fill: var(--color-surface);
   stroke: var(--color-rule-strong);
   stroke-width: var(--stroke-diagram);
 }
 
 .graph-nodes .graph-candidate {
-  stroke: var(--color-accent);
+  fill: var(--color-brand-soft);
+  stroke: var(--color-brand);
   stroke-width: var(--stroke-diagram-emphasis);
 }
 
 .graph-nodes text {
   fill: var(--color-text);
   font-size: var(--text-diagram-node);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-semibold);
 }
 
 .graph-nodes .graph-candidate-label {
@@ -51,16 +57,7 @@
 }
 
 .graph-caption {
-  max-width: var(--size-diagram);
   margin-top: var(--space-4);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
-}
-
-@media (min-width: 880px) {
-  :host {
-    justify-self: end;
-    width: 100%;
-    max-width: var(--size-diagram);
-  }
 }

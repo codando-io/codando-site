@@ -17,9 +17,27 @@
 }
 
 .footer-nav {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
   column-gap: var(--space-6);
+}
+
+@media (min-width: 560px) {
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+}
+
+/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
+.nav-link:hover,
+.footer-domain:hover {
+  color: var(--color-brand-ink);
 }
 
 .footer-bottom {
@@ -46,9 +64,4 @@
 
 .footer-domain {
   color: var(--color-text-muted);
-}
-
-/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
-.footer-domain:hover {
-  color: var(--color-accent);
 }

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { PRODUCTS } from '../../content/products';
+import { LIVE_PRODUCTS } from '../../content/products';
+import { UiCard } from '../../ui/card/card';
 import { ProductEntry } from './product-entry/product-entry';
-import { PrumoPanel } from './prumo-panel/prumo-panel';
 
 @Component({
   selector: 'section[appProducts]',
-  imports: [PrumoPanel, ProductEntry],
+  imports: [UiCard, ProductEntry],
   templateUrl: './products.html',
   styleUrl: './products.css',
   host: { id: 'products', class: 'section', 'aria-labelledby': 'products-title' },
 })
 export class Products {
-  protected readonly products = PRODUCTS;
+  protected readonly products = LIVE_PRODUCTS;
 }

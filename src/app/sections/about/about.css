@@ -8,16 +8,17 @@
 }
 
 .about-body > p {
-  font-size: var(--text-lg);
-  line-height: var(--leading-normal);
+  font-size: var(--text-lead);
+  line-height: var(--leading-body);
 }
 
 .about-body > p + p {
   margin-top: var(--space-5);
+  color: var(--color-text-muted);
 }
 
 .founder {
-  margin-top: var(--space-12);
+  margin-top: var(--space-10);
   padding-top: var(--space-6);
   border-top: var(--border-hairline) solid var(--color-rule);
 }

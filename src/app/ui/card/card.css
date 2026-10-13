@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding: var(--space-card);
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+:host(.ui-card--solid) {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+:host(.ui-card--dashed) {
+  border-style: dashed;
+  border-color: var(--color-rule-strong);
+}

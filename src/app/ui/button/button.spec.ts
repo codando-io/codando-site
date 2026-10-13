@@ -5,8 +5,8 @@ import { UiButton } from './button';
 @Component({
   imports: [UiButton],
   template: `
-    <a uiButton href="#products">Explore our products</a>
-    <a uiButton variant="secondary" size="sm" class="header-cta" href="#about">About Codando</a>
+    <a uiButton href="#prumo">See what we’re building</a>
+    <a uiButton variant="secondary" size="sm" class="header-cta" href="#contact">Get in touch</a>
   `,
 })
 class Host {}
@@ -23,8 +23,8 @@ describe('UiButton', () => {
   it('defaults to the primary, medium button and stays a link with its href', async () => {
     const [link] = await render();
     expect(classesOf(link)).toEqual(['ui-button', 'ui-button--md', 'ui-button--primary']);
-    expect(link.getAttribute('href')).toBe('#products');
-    expect(link.textContent?.trim()).toBe('Explore our products');
+    expect(link.getAttribute('href')).toBe('#prumo');
+    expect(link.textContent?.trim()).toBe('See what we’re building');
   });
 
   it('maps variant and size to classes and keeps the classes set by the caller', async () => {
@@ -35,6 +35,6 @@ describe('UiButton', () => {
       'ui-button--secondary',
       'ui-button--sm',
     ]);
-    expect(link.getAttribute('href')).toBe('#about');
+    expect(link.getAttribute('href')).toBe('#contact');
   });
 });

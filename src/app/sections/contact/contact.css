@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  padding-block: var(--space-cta);
+  border-block: var(--surface-edge);
+  background: var(--mesh-cta), var(--color-page);
+  color: var(--color-text);
+}
+
+.contact-inner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.contact-text {
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-lead);
+}
+
+.contact-address {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  user-select: all;
+}
+
+.contact-action {
+  margin-top: var(--space-8);
+}

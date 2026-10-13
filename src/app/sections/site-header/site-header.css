@@ -3,7 +3,8 @@
   top: var(--space-0);
   z-index: var(--z-header);
   border-bottom: var(--border-hairline) solid var(--color-rule);
-  background: var(--color-page);
+  background: var(--color-header);
+  backdrop-filter: blur(var(--blur-header));
 }
 
 .header-inner {
@@ -18,16 +19,43 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--space-7);
+  gap: var(--space-6);
 }
 
 .nav-list {
   display: flex;
-  gap: var(--space-5);
+  gap: var(--space-6);
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+}
+
+/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
+.nav-link:hover {
+  color: var(--color-text);
 }
 
 .header-cta {
   display: none;
+}
+
+@media (max-width: 419.98px) {
+  .nav-link {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 559.98px) {
+  .nav {
+    flex: 1 0 100%;
+  }
+
+  .nav-list {
+    flex: 1;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
 }
 
 @media (min-width: 720px) {

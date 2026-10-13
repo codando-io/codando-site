@@ -1,0 +1,14 @@
+<div class="container">
+  <p class="kicker">How we build</p>
+  <h2 id="how-we-build-title">Every product, built end to end.</h2>
+  <p class="lead">
+    Codando takes each product from the first sketch to the server it runs on: the interface, the
+    data, the real-time systems, and the infrastructure.
+  </p>
+  <ul appFeatureList class="capabilities" [features]="capabilities"></ul>
+  <ul class="stack">
+    @for (tool of stack; track tool) {
+      <li>{{ tool }}</li>
+    }
+  </ul>
+</div>

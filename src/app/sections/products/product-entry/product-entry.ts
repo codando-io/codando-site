@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { Product } from '../../../content/products';
+import { LiveProduct } from '../../../content/products';
 import { UiStatusChip } from '../../../ui/status-chip/status-chip';
 
 @Component({
@@ -9,7 +9,7 @@ import { UiStatusChip } from '../../../ui/status-chip/status-chip';
   styleUrl: './product-entry.css',
 })
 export class ProductEntry {
-  readonly product = input.required<Product>();
+  readonly product = input.required<LiveProduct>();
 
   protected readonly appHost = computed(() => new URL(this.product().appUrl).host);
 }

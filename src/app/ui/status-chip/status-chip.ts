@@ -2,7 +2,8 @@ import { Component, computed, input } from '@angular/core';
 
 export type ProductStatus = 'live' | 'in-development';
 
-const LABELS: Record<ProductStatus, string> = {
+/** The label each status shows, also used to count products by status. */
+export const STATUS_LABELS: Record<ProductStatus, string> = {
   live: 'Live',
   'in-development': 'In development',
 };
@@ -16,5 +17,5 @@ const LABELS: Record<ProductStatus, string> = {
 export class UiStatusChip {
   readonly status = input.required<ProductStatus>();
 
-  protected readonly label = computed(() => LABELS[this.status()]);
+  protected readonly label = computed(() => STATUS_LABELS[this.status()]);
 }

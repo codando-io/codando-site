@@ -2,37 +2,61 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--size-target);
-  padding: var(--space-2) var(--space-5);
+  gap: var(--space-2);
+  min-height: var(--size-button);
+  padding-inline: var(--space-6);
   border: var(--border-hairline) solid transparent;
-  border-radius: var(--radius-md);
-  font-weight: var(--weight-strong);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
   line-height: var(--leading-control);
   text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-hover) ease,
+    border-color var(--duration-hover) ease,
+    color var(--duration-hover) ease;
 }
 
 :host(.ui-button--sm) {
-  padding-inline: var(--space-4);
-  font-size: var(--text-md);
+  min-height: var(--size-button-sm);
+  padding-inline: var(--space-5);
+  font-size: var(--text-sm);
+}
+
+:host(.ui-button--sm.ui-button--primary) {
+  box-shadow: none;
 }
 
 :host(.ui-button--primary) {
-  background: var(--color-text);
-  color: var(--color-page);
+  background: var(--color-action);
+  box-shadow: var(--shadow-action);
+  color: var(--color-on-action);
 }
 
+/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
 :host(.ui-button--primary:hover) {
   background: var(--color-action-hover);
-  color: var(--color-page);
+  color: var(--color-on-action);
 }
 
 :host(.ui-button--secondary) {
   border-color: var(--color-rule-strong);
+  background: var(--color-surface);
   color: var(--color-text);
 }
 
-/* Scoped rules outrank the global a:hover, so the hover color is restated here. */
 :host(.ui-button--secondary:hover) {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-brand);
+  color: var(--color-brand-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :host {
+    transition-property: background-color, border-color, color, transform;
+  }
+
+  :host(:hover) {
+    transform: translateY(var(--lift-hover));
+  }
 }

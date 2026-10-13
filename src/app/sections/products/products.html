@@ -1,12 +1,11 @@
 <div class="container">
-  <h2 id="products-title">Products</h2>
-  <p class="lead">
-    Software products designed to make complex information easier to understand and use.
-  </p>
-  <article appPrumoPanel></article>
-  <div class="products">
+  <p class="kicker">Live today</p>
+  <h2 id="products-title">Products you can use today.</h2>
+  <ul class="products">
     @for (product of products; track product.name) {
-      <article appProductEntry class="product" [product]="product"></article>
+      <li uiCard class="product">
+        <article appProductEntry [product]="product"></article>
+      </li>
     }
-  </div>
+  </ul>
 </div>

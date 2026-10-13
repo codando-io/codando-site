@@ -1,18 +1,48 @@
 :host {
+  position: relative;
+  isolation: isolate;
   display: block;
-  padding-block: var(--space-hero-top) var(--space-section);
+  overflow: hidden;
+  padding-block: var(--space-hero-top) var(--space-hero-bottom);
+  background:
+    linear-gradient(to bottom, transparent 70%, var(--color-page)), var(--mesh-hero),
+    var(--color-page);
+}
+
+:host::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-0);
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, var(--color-grid-line) var(--border-hairline), transparent 0),
+    linear-gradient(to bottom, var(--color-grid-line) var(--border-hairline), transparent 0);
+  background-size: var(--size-grid) var(--size-grid);
+  mask-image: var(--mask-fade);
+}
+
+.hero-inner {
+  display: grid;
+  gap: var(--space-block);
+}
+
+/* A badge rather than a bare kicker: it keeps the text legible over the mesh's brightest corner. */
+.hero-kicker {
+  display: inline-flex;
+  padding: var(--space-1-5) var(--space-3);
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  background: var(--color-badge);
 }
 
 .hero-title {
-  max-width: var(--measure-hero);
   font-size: var(--text-h1);
-  font-weight: var(--weight-display);
-  letter-spacing: var(--tracking-hero);
-  line-height: var(--leading-hero);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-h1);
+  line-height: var(--leading-h1);
 }
 
 .hero-lead {
-  max-width: var(--measure-hero-lead);
   margin-top: var(--space-6);
 }
 
@@ -20,5 +50,29 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin-top: var(--space-9);
+  margin-top: var(--space-8);
+}
+
+.hero-board {
+  max-width: var(--size-board);
+}
+
+@media (max-width: 419.98px) {
+  .hero-kicker {
+    letter-spacing: var(--tracking-kicker-narrow);
+  }
+}
+
+@media (max-width: 559.98px) {
+  .actions {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) var(--size-board);
+    align-items: center;
+    gap: var(--space-columns);
+  }
 }

@@ -26,18 +26,13 @@ describe('Products', () => {
       'https://src.capivaras.dev/capivaras/cenaculum',
     ]);
     expect(cenaculum.textContent).toContain('Open Cenaculum cenaculum.capivaras.dev');
-  });
-
-  it('links Prumo only to its section on this page', async () => {
-    const prumo = (await render()).querySelector('article[appPrumoPanel]')!;
-
-    expect(hrefs(prumo)).toEqual(['#prumo']);
+    expect(cenaculum.textContent).toContain('Open source under the MIT License.');
   });
 
   it('opens every link in the same tab', async () => {
     const section = await render();
 
-    expect(section.querySelectorAll('a')).toHaveLength(5);
+    expect(section.querySelectorAll('a')).toHaveLength(4);
     expect(section.querySelectorAll('a[target]')).toHaveLength(0);
   });
 });

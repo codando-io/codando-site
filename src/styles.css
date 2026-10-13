@@ -40,12 +40,9 @@ body {
 h1,
 h2,
 h3,
-h4,
 p,
 ul,
 ol,
-dl,
-dd,
 figure {
   margin: var(--space-0);
 }
@@ -62,21 +59,21 @@ h3 {
   text-wrap: balance;
 }
 
-p,
-dd {
+p {
   text-wrap: pretty;
 }
 
 h2 {
+  max-width: var(--measure-h2);
   font-size: var(--text-h2);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-display);
-  line-height: var(--leading-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-h2);
 }
 
 h3 {
   font-size: var(--text-lg);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-heading);
 }
@@ -86,11 +83,11 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--color-brand-ink);
 }
 
 :focus-visible {
-  outline: var(--focus-ring-width) solid var(--color-accent);
+  outline: var(--focus-ring-width) solid var(--color-brand-ink);
   outline-offset: var(--focus-ring-offset);
 }
 
@@ -114,15 +111,35 @@ svg {
 
 .section {
   padding-block: var(--space-section);
-  scroll-margin-top: var(--space-16);
+  scroll-margin-top: var(--size-header);
+}
+
+.section-well {
+  border-block: var(--border-hairline) solid var(--color-rule);
+  background: var(--color-well);
+}
+
+.kicker {
+  color: var(--color-brand-ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-kicker);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-kicker);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+}
+
+.kicker + h1,
+.kicker + h2 {
+  margin-top: var(--space-4);
 }
 
 .lead {
   max-width: var(--measure-lead);
   margin-top: var(--space-5);
   color: var(--color-text-muted);
-  font-size: var(--text-lg);
-  line-height: var(--leading-normal);
+  font-size: var(--text-lead);
+  line-height: var(--leading-body);
 }
 
 .nav-link {
@@ -132,28 +149,14 @@ svg {
   font-size: var(--text-md);
   font-weight: var(--weight-medium);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .text-link {
-  font-weight: var(--weight-strong);
+  color: var(--color-brand-ink);
+  font-weight: var(--weight-semibold);
   text-decoration-thickness: var(--border-hairline);
   text-underline-offset: var(--underline-offset);
-}
-
-.product-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2) var(--space-3);
-}
-
-.product-heading h3 {
-  font-size: var(--text-xl);
-}
-
-.product-meta {
-  margin-top: var(--space-1-5);
-  color: var(--color-text-muted);
 }
 
 .nowrap {

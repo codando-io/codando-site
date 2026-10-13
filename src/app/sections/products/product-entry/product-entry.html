@@ -1,13 +1,15 @@
 @let item = product();
-<div class="product-heading">
-  <h3>{{ item.name }}</h3>
-  <ui-status-chip [status]="item.status" />
+<div class="product-body">
+  <div class="product-heading">
+    <h3>{{ item.name }}</h3>
+    <ui-status-chip [status]="item.status" />
+  </div>
+  <p class="product-category">{{ item.category }}</p>
+  <p class="product-description">{{ item.description }}</p>
+  @if (item.note; as note) {
+    <p class="product-note">{{ note }}</p>
+  }
 </div>
-<p class="product-meta">{{ item.category }}</p>
-<p class="product-description">{{ item.description }}</p>
-@if (item.note; as note) {
-  <p class="product-note">{{ note }}</p>
-}
 <p class="product-links">
   <a class="open-link" [href]="item.appUrl"
     ><span class="link-label">Open {{ item.name }}</span

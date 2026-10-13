@@ -4,9 +4,9 @@ export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonSize = 'sm' | 'md';
 
 /**
- * A link styled as a button: the page's calls to action are all in-page links.
+ * A link styled as a pill button: the page's calls to action are all links.
  *
- * `<a uiButton variant="secondary" href="#about">About Codando</a>`
+ * `<a uiButton variant="secondary" href="#products">Products you can use</a>`
  */
 @Component({
   selector: 'a[uiButton]',

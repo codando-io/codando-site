@@ -1,0 +1,16 @@
+<div class="board-header">
+  <span class="board-dots" aria-hidden="true"></span>
+  <p class="board-path">codando.io / products</p>
+</div>
+<ul class="board-rows">
+  @for (product of products; track product.name) {
+    <li>
+      <a class="board-row" [href]="product.href"
+        ><span class="board-name">{{ product.name }}</span
+        >&ngsp;<span class="board-category">{{ product.category }}</span
+        >&ngsp;<ui-status-chip class="board-status" [status]="product.status"
+      /></a>
+    </li>
+  }
+</ul>
+<p class="board-summary">{{ summary }}</p>

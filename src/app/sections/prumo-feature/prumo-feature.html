@@ -1,44 +1,46 @@
 <div class="container">
-  <div class="prumo-intro">
-    <div class="prumo-text">
-      <h2 id="prumo-title">Making public data easier to understand.</h2>
-      <p>
-        Prumo is a civic transparency platform for Brazilian electoral data. It starts from the
-        campaign finance records published by Brazil’s Superior Electoral Court (TSE) and turns the
-        raw open-data files into something anyone can explore: where each campaign’s money came
-        from, and where it went.
+  <div class="prumo-top">
+    <div class="prumo-head">
+      <p class="kicker">What we’re building</p>
+      <h2 id="prumo-title">
+        Where the money in Brazil’s election campaigns came from, and where it went.
+      </h2>
+      <p class="prumo-status">
+        <ui-status-chip [status]="status" />&ngsp;<span
+          >Prumo covers the 2026, 2022, and 2018 general elections.</span
+        >
       </p>
-      <p>
-        It covers the 2026 general elections, while accounts are still being filed, and the 2022 and
-        2018 elections.
-      </p>
-      <div class="callout">
-        <h3>Traceable by design</h3>
-        <p>
-          Every important number links to its source. Official values, Prumo’s own calculations, and
-          statistical patterns are always labeled apart, and patterns are described, never presented
-          as evidence of wrongdoing.
-        </p>
-      </div>
-      <p class="prumo-note">
-        Prumo is independent and has no affiliation with the TSE, political parties, or candidates.
-        Parties never get a color.
+      <p class="lead">
+        Prumo turns the campaign finance data published by Brazil’s Superior Electoral Court (TSE)
+        into something anyone can explore: candidate profiles, money flows, donors and suppliers,
+        and the connections between them.
       </p>
     </div>
-    <figure appRelationshipDiagram></figure>
+    <div uiCard class="diagram-card">
+      <figure appRelationshipDiagram></figure>
+    </div>
   </div>
 
-  <ol appPipeline></ol>
+  <ul appFeatureList class="prumo-features" [features]="features"></ul>
 
-  <div class="next">
-    <div class="product-heading">
-      <h3>Next: <span class="nowrap">AI-assisted</span> analysis</h3>
-      <ui-status-chip status="in-development" />
+  <div class="prumo-notes">
+    <div uiCard>
+      <h3>Independent and neutral</h3>
+      <p>
+        Prumo has no affiliation with the TSE, political parties, or candidates. Parties never get a
+        color, and patterns in the data are described, never presented as evidence of wrongdoing.
+      </p>
     </div>
-    <p>
-      Structured summaries of long documents such as government plans. Any
-      <span class="nowrap">AI-generated</span> text will be labeled as such and linked to the
-      passage it summarizes.
-    </p>
+    <div uiCard variant="dashed">
+      <div class="note-heading">
+        <h3>Next: <span class="nowrap">AI-assisted</span> summaries</h3>
+        <ui-status-chip status="in-development" />
+      </div>
+      <p>
+        Summaries of long documents such as government plans. Any
+        <span class="nowrap">AI-generated</span> text will be labeled as such and linked to the
+        passage it summarizes.
+      </p>
+    </div>
   </div>
 </div>
