@@ -2,28 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
 describe('App', () => {
-  beforeEach(() => {
-    // jsdom has no layout: the hero figure's leader drawing needs these browser APIs to exist.
-    vi.stubGlobal(
-      'ResizeObserver',
-      class {
-        observe() {}
-        disconnect() {}
-      },
-    );
-    Object.defineProperty(document, 'fonts', {
-      configurable: true,
-      value: { ready: Promise.resolve() },
-    });
-    Element.prototype.getAnimations = () => [];
-  });
-
-  afterEach(() => {
-    vi.unstubAllGlobals();
-    delete (document as { fonts?: unknown }).fonts;
-    delete (Element.prototype as { getAnimations?: unknown }).getAnimations;
-  });
-
   async function render(): Promise<HTMLElement> {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
