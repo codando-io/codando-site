@@ -1,3 +1,4 @@
 # Harness files keep the harness templates' exact text; eng-context reads harness.yaml without a YAML parser.
 .engineering/
-.forgejo/pull_request_template.md
+.github/pull_request_template.md
+.github/workflows/harness-check.yml

@@ -130,7 +130,7 @@ prerendered `<h1>`.
 
 | Item                | Value                                                                                   |
 | ------------------- | --------------------------------------------------------------------------------------- |
-| CI on every change  | missing                                                                                 |
+| CI on every change  | missing (`.github/workflows/harness-check.yml` checks only the harness files)           |
 | Hosting / provider  | gemma, the NixOS VPS in `oss/infra`: nginx behind Traefik (`hosts/gemma/codando.nix`)   |
 | Environments        | production only                                                                         |
 | Staging gate        | missing                                                                                 |
