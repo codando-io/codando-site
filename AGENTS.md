@@ -94,6 +94,26 @@ hydrates the prerendered HTML.
   page components use the `app` prefix. Prettier formats everything (`printWidth` 100, single
   quotes, Angular parser for HTML); harness files in `.engineering/` are excluded.
 
+## Feature map
+
+The site has no router and no backend: every feature is a section of the one page, reached by an
+in-page anchor. Nothing here was seen running; rows come from reading `src/app/app.html`, the
+section components, and `src/app/content/`.
+
+| Feature                                                               | Where it lives                                              | How to see it running                                |
+| --------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------- |
+| Header and section navigation (unverified)                            | `src/app/sections/site-header/`, `content/navigation.ts`    | `npm start`, then `http://localhost:4200/`           |
+| Hero with product status board (unverified)                           | `src/app/sections/hero/` (`status-board/`)                  | `npm start`; `status-board.spec.ts` asserts the rows |
+| Prumo, electoral transparency, in development (`#prumo`) (unverified) | `src/app/sections/prumo-feature/`, `content/prumo.ts`       | `npm start`, then `/#prumo`                          |
+| Live products, Agora and Cenaculum (`#products`) (unverified)         | `src/app/sections/products/`, `content/products.ts`         | `npm start`, then `/#products`; `products.spec.ts`   |
+| How we build (`#how-we-build`) (unverified)                           | `src/app/sections/how-we-build/`, `content/how-we-build.ts` | `npm start`, then `/#how-we-build`                   |
+| About (`#about`) (unverified)                                         | `src/app/sections/about/`                                   | `npm start`, then `/#about`                          |
+| Contact, email link to `contact@codando.io` (`#contact`) (unverified) | `src/app/sections/contact/`                                 | `npm start`, then `/#contact`                        |
+| Footer (unverified)                                                   | `src/app/sections/site-footer/`                             | `npm start`; `app.spec.ts` asserts the CNPJ          |
+| Prerendered static page, server route `**` (unverified)               | `src/app/app.routes.server.ts`                              | `npx ng build`, then `npm run preview` (port 4322)   |
+
+There are no public endpoints and no other routes.
+
 ## Reference implementations
 
 Copy these when adding something similar:
